@@ -1,5 +1,5 @@
 #!/bin/bash
-
+eval "$(ssh-agent -s)"
 # Variables
 BITWIG_PRESETS_DIR="$HOME/Documents/Bitwig Studio/Library/Presets" # Path to your Bitwig presets folder
 GIT_REPO_PATH="$HOME/repos/bitwig-presets" # Local clone of your GitHub repo
