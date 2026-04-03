@@ -1,8 +1,7 @@
 #!/bin/bash
 eval "$(ssh-agent -s)"
 # Variables
-DEFAULT_BITWIG_PRESETS_DIR="$HOME/Documents/Bitwig Studio/Library/Presets"
-BITWIG_PRESETS_DIR="${BITWIG_PRESETS_DIR:-$DEFAULT_BITWIG_PRESETS_DIR}" # Override with BITWIG_PRESETS_DIR
+BITWIG_PRESETS_DIR="$HOME/Documents/Bitwig Studio/Library/Presets" # Path to your Bitwig presets folder
 GIT_REPO_PATH="$HOME/repos/bitwig-presets" # Local clone of your GitHub repo
 COMMIT_MSG="Sync Bitwig presets on $(date +'%Y-%m-%d %H:%M:%S')"
 REMOTE="origin" # Remote name for your GitHub repo
@@ -12,12 +11,6 @@ BRANCH="main"   # Default branch (adjust if your default branch is different)
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No color
-
-if [ ! -d "$BITWIG_PRESETS_DIR" ]; then
-  echo -e "${RED}Bitwig presets directory not found: $BITWIG_PRESETS_DIR${NC}"
-  echo "Set BITWIG_PRESETS_DIR to your local Bitwig presets path and run again."
-  exit 1
-fi
 
 # Navigate to the Git repository
 echo -e "${GREEN}Navigating to Git repository...${NC}"
